@@ -57,24 +57,21 @@ kotlin {
 //    }
 
     js(IR) {
-        moduleName = "composeApp"
+        compilerOptions {
+            outputModuleName.set("composeApp")
+        }
         browser {
-            val rootDirPath = project.rootDir.path
-            val projectDirPath = project.projectDir.path
             commonWebpackConfig {
                 outputFileName = "composeApp.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static = (static ?: mutableListOf()).apply {
-                        // Serve sources to debug inside browser
-                        add(rootDirPath)
-                        add(projectDirPath)
-                    }
+                    port = 8081
+                    static = mutableListOf(project.rootDir.path)
                 }
             }
         }
         binaries.executable()
-    }
 
+    }
     sourceSets {
         val desktopMain by getting
 
@@ -121,7 +118,7 @@ kotlin {
             implementation(libs.multiplatform.settings)
 
             implementation(libs.kotlinx.datetime)
-
+            implementation(libs.primitive.adapters)
         }
 
         iosMain.dependencies {
@@ -210,4 +207,7 @@ tasks.register("jsBrowserRun") {
     dependsOn("jsBrowserDevelopmentRun")
     group = "run"
     description = "Alias for jsBrowserDevelopmentRun"
+
+
 }
+

@@ -1,0 +1,75 @@
+import kotlin.String;
+import kotlin.collections.List;
+
+CREATE TABLE Tarif (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    category TEXT NOT NULL,
+    area TEXT NOT NULL,
+    imageUrl TEXT NOT NULL,
+    youtubeLink TEXT NOT NULL,
+    ingredients TEXT AS List<String> NOT NULL,
+    instructions TEXT AS List<String> NOT NULL,
+    isFavorite INTEGER NOT NULL,
+    rating INTEGER NOT NULL,
+    duration TEXT DEFAULT '20 Mins',
+    difficulty TEXT DEFAULT 'Easy'
+);
+
+insertTarif:
+INSERT INTO Tarif(id, title, description, category, area, imageUrl, youtubeLink, ingredients, instructions, isFavorite, rating, duration, difficulty)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+);
+
+upsertTarif {
+    UPDATE Tarif
+    SET title = :title,
+    description = :description,
+    category = :category,
+    area = :area,
+    imageUrl = :imageUrl,
+    youtubeLink = :youtubeLink,
+    ingredients = :ingredients,
+    instructions = :instructions,
+    isFavorite = :isFavorite,
+    rating = :rating,
+    duration = :duration,
+    difficulty = :difficulty
+    WHERE id = :id;
+
+    INSERT OR IGNORE INTO Tarif(id, title, description, category, area, imageUrl, youtubeLink, ingredients, instructions, isFavorite, rating, duration, difficulty)
+    VALUES(:id, :title, :description, :category, :area, :imageUrl, :youtubeLink, :ingredients, :instructions, :isFavorite, :rating, :duration, :difficulty);
+
+}
+
+selectTumTarifler:
+SELECT * FROM Tarif;
+
+selectTarifById:
+SELECT * FROM Tarif WHERE id = ?;
+
+updateTarif:
+UPDATE Tarif
+ SET title = ?,
+    description = ?,
+    category = ?,
+    area = ?,
+    imageUrl = ?,
+    youtubeLink = ?,
+    ingredients = ?,
+    instructions = ?,
+    isFavorite = ?,
+    rating = ?,
+    duration = ?,
+    difficulty = ?
+    WHERE  id = ?;
+
+TarifSilById:
+DELETE FROM Tarif WHERE id = ?;
+
+deleteTumTarifler:
+DELETE FROM Tarif;
+
+araTarifByText:
+SELECT * FROM Tarif WHERE title LIKE ('%' || :query || '%') OR description LIKE ('%' || :query || '%') OR ingredients LIKE ('%' || :query || '%');

@@ -4,12 +4,15 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.ComposeViewport
 import kotlinx.browser.document
 import knb.bunuyesene.di.initKoinJs
+import org.jetbrains.compose.web.renderComposable
 
 val koin = initKoinJs()
 
-@OptIn(ExperimentalComposeUiApi::class)
+
 fun main() {
-    ComposeViewport(document.body!!) {
+    renderComposable(rootElementId = "root")
+
+    {
         App()
     }
 }
