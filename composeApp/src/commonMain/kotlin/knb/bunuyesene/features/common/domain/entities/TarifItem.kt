@@ -12,6 +12,6 @@ data class TarifItem(
     val instructions: List<String>,
     val isFavori: Boolean,
     val rating: Long,
-    val duration: String = "20 Mins",
-    val difficulty: String = "Easy"
+    val duration: String = "25 Dakika",
+    val difficulty: String = "Kolay"
 )

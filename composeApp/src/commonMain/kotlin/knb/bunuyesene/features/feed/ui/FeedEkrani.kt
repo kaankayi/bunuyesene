@@ -114,13 +114,13 @@ private fun TopBar(navigateToArama: () -> Unit) {
     ) {
 
         Text(
-            text = "Hi Alan!",
+            text = "Selam Kaan!",
             color = MaterialTheme.colorScheme.primaryContainer,
             style = MaterialTheme.typography.titleMedium
         )
 
         Text(
-            text = "Got a tasty dish in mind?",
+            text = "Aklında bir yemek var mı?",
             color = MaterialTheme.colorScheme.onBackground,
             style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
         )
@@ -158,7 +158,7 @@ private fun AramaBari(
             Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
             Spacer(modifier = Modifier.width(8.dp))
             Text(
-                text = "Search any tarifler",
+                text = "Varsa buradan ara!",
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground.copy(
                     alpha = 0.7f
@@ -188,11 +188,11 @@ private fun FeedContent(
         item(
             span = { GridItemSpan(maxLineSpan) }
         ) {
-            TopTariflerList(title = "Top Recommendations", tarifler = tarifler.reversed(), navigateToDetay = navigateToDetay)
+            TopTariflerList(title = "En İyi Tarifler", tarifler = tarifler.reversed(), navigateToDetay = navigateToDetay)
         }
 
         haftaninTarifleri(
-            title = "Recipes Of the Week", tarifler = tarifler,  navigateToDetay = navigateToDetay
+            title = "Haftanın Tarifleri", tarifler = tarifler,  navigateToDetay = navigateToDetay
         )
 
     }

@@ -21,16 +21,16 @@ class GirisViewModel: ViewModel() {
 
                 delay(1500)
 
-                if (email == "test@gmail.com" && password == "test") {
+                if (email == "kaan@gmail.com" && password == "kaan123") {
                     _girisState.value = GirisState.Success
                 } else {
                     _girisState.value = GirisState.Error(
-                        "Invalid email or password"
+                        "Hatalı e-mail veya şifre."
                     )
                 }
             } catch (e: Exception) {
                 _girisState.value = GirisState.Error(
-                    "An unexpected error in login"
+                    "Giriş yaparken beklenmedik bir hata oluştu."
                 )
             }
         }

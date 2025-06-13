@@ -84,7 +84,7 @@ fun FavoriEkrani(
                     containerColor = MaterialTheme.colorScheme.background,
                 ),
                 title = {
-                    Text("Favorites")
+                    Text("Favoriler")
                 }
             )
         }

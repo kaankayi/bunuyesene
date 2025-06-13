@@ -160,7 +160,7 @@ fun GirisEkraniModalBottomSheet(
                             email = it
                         },
                         label = {
-                            Text("Email")
+                            Text("E-mail adresi")
                         },
                         modifier = Modifier.fillMaxWidth()
                     )
@@ -181,7 +181,7 @@ fun GirisEkraniModalBottomSheet(
                             password = it
                         },
                         label = {
-                            Text("Password")
+                            Text("Şifre")
                         },
                         modifier = Modifier.fillMaxWidth(),
                         visualTransformation = PasswordVisualTransformation()
@@ -226,7 +226,7 @@ fun GirisEkraniModalBottomSheet(
                         },
                         enabled = girisState !is GirisState.Loading,
                     ) {
-                        Text("Login", color = MaterialTheme.colorScheme.onPrimary)
+                        Text("Giriş Yap", color = MaterialTheme.colorScheme.onPrimary)
                     }
 
                     Spacer(modifier = Modifier.height(16.dp))

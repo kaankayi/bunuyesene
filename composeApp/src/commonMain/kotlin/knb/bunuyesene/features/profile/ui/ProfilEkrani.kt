@@ -86,7 +86,7 @@ fun ProfilEkrani(
                     containerColor = MaterialTheme.colorScheme.background
                 ),
                 title = {
-                    Text("Profile")
+                    Text("Profil")
                 }
             )
         }
@@ -156,7 +156,7 @@ fun NotLoggedInProfilEkrani(
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            "You are not Logged In",
+            "Henüz giriş yapmadınız.",
             style = TextStyle(
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
@@ -167,7 +167,7 @@ fun NotLoggedInProfilEkrani(
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            "Login to view your profile",
+            "Profilinizi görüntüleyebilmek için giriş yapınız.",
             style = TextStyle(
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground
@@ -185,7 +185,7 @@ fun NotLoggedInProfilEkrani(
                 )
             ) {
                 Text(
-                    "Log In", fontSize = 16.sp
+                    "Giriş Yap", fontSize = 16.sp
                 )
             }
         }
@@ -205,7 +205,7 @@ fun NotLoggedInProfilEkrani(
                 )
             ) {
                 Text(
-                    "Sign Up", fontSize = 16.sp
+                    "Kayıt Ol", fontSize = 16.sp
                 )
             }
         }

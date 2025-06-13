@@ -13,8 +13,8 @@ CREATE TABLE Tarif (
     instructions TEXT AS List<String> NOT NULL,
     isFavori INTEGER NOT NULL,
     rating INTEGER NOT NULL,
-    duration TEXT DEFAULT '20 Mins',
-    difficulty TEXT DEFAULT 'Easy'
+    duration TEXT DEFAULT '25 Dakika',
+    difficulty TEXT DEFAULT 'Kolay'
 );
 
 insertTarif:

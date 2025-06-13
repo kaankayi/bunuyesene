@@ -103,7 +103,7 @@ fun DetayRoute(
             },
             title = {
                 Text(
-                    text = "Update Favorites",
+                    text = "Favorileri Güncelle",
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontWeight = FontWeight.Bold
                     )
@@ -111,7 +111,7 @@ fun DetayRoute(
             },
             text = {
                 Text(
-                    text = "Login to Add/Remove Favorites",
+                    text = "Favori ekleyip kaldırmak için giriş yapınız.",
                 )
             },
             confirmButton = {
@@ -128,7 +128,7 @@ fun DetayRoute(
                         }
                     }
                 }) {
-                    Text("Login", color = MaterialTheme.colorScheme.onPrimary)
+                    Text("Giriş", color = MaterialTheme.colorScheme.onPrimary)
                 }
             },
             dismissButton = {
@@ -139,7 +139,7 @@ fun DetayRoute(
                     ), onClick = {
                         showAlertDialog = false
                     }) {
-                    Text("Cancel", color = MaterialTheme.colorScheme.primaryContainer)
+                    Text("İptal", color = MaterialTheme.colorScheme.primaryContainer)
                 }
             }
         )
@@ -326,7 +326,7 @@ fun TarifMainContent(
             modifier = Modifier.padding(horizontal = 16.dp).padding(bottom = 16.dp)
         ) {
             Text(
-                text = "Description", style = MaterialTheme.typography.titleMedium.copy(
+                text = "Açıklama", style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.Bold
                 )
             )
@@ -424,7 +424,7 @@ fun IngredientsList(
     Column(modifier = Modifier.padding(horizontal = 16.dp)) {
 
         Text(
-            text = "Ingredients",
+            text = "Malzemeler",
             style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
         )
 
@@ -459,7 +459,7 @@ fun Instructions(
     Column(modifier = Modifier.padding(horizontal = 16.dp)) {
 
         Text(
-            text = "Instructions",
+            text = "Nasıl Yapacağım?",
             style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
         )
 
@@ -493,7 +493,7 @@ fun WatchVideoButton(
         )
         Spacer(modifier = Modifier.width(16.dp))
         Text(
-            "Watch Video", style = MaterialTheme.typography.bodyMedium.copy(
+            "Tarif Videosunu İzle", style = MaterialTheme.typography.bodyMedium.copy(
                 color = MaterialTheme.colorScheme.onPrimary
             )
         )
