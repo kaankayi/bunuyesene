@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinContext
@@ -19,10 +20,12 @@ import knb.bunuyesene.features.login.ui.GirisEkraniModalBottomSheet
 import knb.bunuyesene.features.login.ui.GirisViewModel
 
 
+
 @Composable
 @Preview
 fun App(
     girisViewModel: GirisViewModel = koinViewModel()
+            navController: NavHostController = rememberNavController()
 ) {
 
 
