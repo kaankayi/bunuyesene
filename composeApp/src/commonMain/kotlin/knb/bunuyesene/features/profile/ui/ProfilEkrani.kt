@@ -230,7 +230,7 @@ fun ProfilContent(
 
         Image(
             painter = painterResource(Res.drawable.avatar),
-            contentDescription = "Profile Image",
+            contentDescription = "Profil Fotoğrafı",
             modifier = Modifier
                 .size(120.dp)
                 .clip(CircleShape)
@@ -265,7 +265,7 @@ fun ProfilContent(
                 )
             ) {
                 Text(
-                    "Edit Profile", fontSize = 16.sp
+                    "Profili Düzenle", fontSize = 16.sp
                 )
             }
         }
@@ -282,7 +282,7 @@ fun ProfilContent(
                 )
             ) {
                 Text(
-                    "Logout", fontSize = 16.sp,
+                    "Çıkış Yap", fontSize = 16.sp,
                     color = MaterialTheme.colorScheme.onPrimary
                 )
             }

@@ -44,8 +44,8 @@ class ProfilViewModel : ViewModel() {
             ProfilEkraniUiState(
                 userInfo = User(
                     id = 1,
-                    name = "John",
-                    email = "john@gmail.com",
+                    name = "Kaan",
+                    email = "kaan@gmail.com",
                     myTarifCount = 20,
                     favoriTarifCount = 10,
                     followers = 140
