@@ -30,8 +30,8 @@ fun main() {
 
                 val initRoute = window.location.hash.substringAfter("#", "")
                 when {
-                    initRoute.startsWith("detail") -> {
-                        val id = initRoute.substringAfter("detail/").toLong()
+                    initRoute.startsWith("detay") -> {
+                        val id = initRoute.substringAfter("detay/").toLong()
                         navController.navigate(
                             Ekran.Detay.route.replace(
                                 "$TARIF_ID_ARG={$TARIF_ID_ARG}",
@@ -40,7 +40,7 @@ fun main() {
                         )
                     }
 
-                    initRoute.startsWith("search") -> {
+                    initRoute.startsWith("arama") -> {
                         navController.navigate(Ekran.Arama.route)
                     }
                 }
@@ -60,11 +60,11 @@ fun main() {
                             }
 
                             //#detail/1
-                            "#detail/${id}"
+                            "#detay/${id}"
                         }
 
                         route.startsWith(Ekran.Arama.route) -> {
-                            "#search"
+                            "#arama"
                         }
 
                         else -> ""

@@ -1,4 +1,4 @@
-package knb.bunuyesene
+    package knb.bunuyesene
 
 class JsPlatform: Platform {
     override val name: String = "Web with Kotlin/Js"

@@ -24,7 +24,7 @@ import knb.bunuyesene.features.login.ui.GirisViewModel
 @Composable
 @Preview
 fun App(
-    girisViewModel: GirisViewModel = koinViewModel()
+    girisViewModel: GirisViewModel = koinViewModel(),
             navController: NavHostController = rememberNavController()
 ) {
 
@@ -33,7 +33,7 @@ fun App(
 
         KoinContext {
 
-            val navController = rememberNavController()
+            //val navController = rememberNavController()
             val appState = rememberAppState(
                 navController,
                 scope = rememberCoroutineScope(),
