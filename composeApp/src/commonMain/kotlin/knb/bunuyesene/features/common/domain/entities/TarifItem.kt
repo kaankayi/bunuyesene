@@ -10,7 +10,7 @@ data class TarifItem(
     val youtubeLink: String,
     val ingredients: List<String>,
     val instructions: List<String>,
-    val isFavorite: Boolean,
+    val isFavori: Boolean,
     val rating: Long,
     val duration: String = "20 Mins",
     val difficulty: String = "Easy"

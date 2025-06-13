@@ -4,7 +4,7 @@ import knb.bunuyesene.features.common.data.database.DbHelper
 import knb.bunuyesene.features.common.domain.entities.TarifItem
 import app.cash.sqldelight.async.coroutines.awaitAsList
 import app.cash.sqldelight.async.coroutines.awaitAsOneOrNull
-import knb.bunuyesene.features.common.data.database.TarifEntityMapper
+import knb.bunuyesene.features.common.data.database.tarifEntityMapper
 
 
 
@@ -24,7 +24,7 @@ class TarifDao(
                 tarifItem.youtubeLink,
                 tarifItem.ingredients,
                 tarifItem.instructions,
-                if (tarifItem.isFavorite) 1 else 0,
+                if (tarifItem.isFavori) 1 else 0,
                 tarifItem.rating,
                 tarifItem.duration,
                 tarifItem.difficulty
@@ -43,7 +43,7 @@ class TarifDao(
                 tarifItem.youtubeLink,
                 tarifItem.ingredients,
                 tarifItem.instructions,
-                if (tarifItem.isFavorite) 1 else 0,
+                if (tarifItem.isFavori) 1 else 0,
                 tarifItem.rating,
                 tarifItem.duration,
                 tarifItem.difficulty,
@@ -52,7 +52,7 @@ class TarifDao(
         }
     }
 
-    suspend fun insertRecipesBulk(recipes: List<TarifItem>) {
+    suspend fun insertTarifBulk(recipes: List<TarifItem>) {
         dbHelper.withDatabase { database ->
              recipes.forEach { tarifItem ->
                 database.tarifEntityQueries.insertTarif(
@@ -65,7 +65,7 @@ class TarifDao(
                     tarifItem.youtubeLink,
                     tarifItem.ingredients,
                     tarifItem.instructions,
-                    if (tarifItem.isFavorite) 1 else 0,
+                    if (tarifItem.isFavori) 1 else 0,
                     tarifItem.rating,
                     tarifItem.duration,
                     tarifItem.difficulty
@@ -74,7 +74,7 @@ class TarifDao(
         }
     }
 
-    suspend fun upsertRecipesBulk(recipes: List<TarifItem>) {
+    suspend fun upsertTarifBulk(recipes: List<TarifItem>) {
         dbHelper.withDatabase { database ->
             recipes.forEach { tarifItem ->
                 database.tarifEntityQueries.upsertTarif(
@@ -86,7 +86,7 @@ class TarifDao(
                     tarifItem.youtubeLink,
                     tarifItem.ingredients,
                     tarifItem.instructions,
-                    if (tarifItem.isFavorite) 1 else 0,
+                    if (tarifItem.isFavori) 1 else 0,
                     tarifItem.rating,
                     tarifItem.duration,
                     tarifItem.difficulty,
@@ -96,11 +96,11 @@ class TarifDao(
         }
     }
 
-    suspend fun getTumTarifler(): List<TarifItem> {
+    suspend fun getAllTarifler(): List<TarifItem> {
 
         return dbHelper.withDatabase { database ->
-            database.tarifEntityQueries.selectTumTarifler().awaitAsList().map {
-                TarifEntityMapper(it)
+            database.tarifEntityQueries.selectAllTarifler().awaitAsList().map {
+                tarifEntityMapper(it)
             }
         }
 
@@ -110,15 +110,15 @@ class TarifDao(
 
         return dbHelper.withDatabase { database ->
             database.tarifEntityQueries.selectTarifById(id).awaitAsOneOrNull()?.let {
-                TarifEntityMapper(it)
+                tarifEntityMapper(it)
             }
         }
 
     }
 
-    suspend fun tarifSilById(id: Long) {
+    suspend fun deleteTarifById(id: Long) {
         dbHelper.withDatabase { database ->
-            database.tarifEntityQueries.TarifSilById(id)
+            database.tarifEntityQueries.deleteTarifById(id)
         }
     }
 
@@ -126,7 +126,7 @@ class TarifDao(
     suspend fun araTarifByText(text: String): List<TarifItem> {
         return dbHelper.withDatabase { database ->
            database.tarifEntityQueries.araTarifByText(text).awaitAsList().map {
-                TarifEntityMapper(it)
+                tarifEntityMapper(it)
             }
         }
     }

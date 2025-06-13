@@ -11,14 +11,14 @@ CREATE TABLE Tarif (
     youtubeLink TEXT NOT NULL,
     ingredients TEXT AS List<String> NOT NULL,
     instructions TEXT AS List<String> NOT NULL,
-    isFavorite INTEGER NOT NULL,
+    isFavori INTEGER NOT NULL,
     rating INTEGER NOT NULL,
     duration TEXT DEFAULT '20 Mins',
     difficulty TEXT DEFAULT 'Easy'
 );
 
 insertTarif:
-INSERT INTO Tarif(id, title, description, category, area, imageUrl, youtubeLink, ingredients, instructions, isFavorite, rating, duration, difficulty)
+INSERT INTO Tarif(id, title, description, category, area, imageUrl, youtubeLink, ingredients, instructions, isFavori, rating, duration, difficulty)
 VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
 );
 
@@ -32,18 +32,18 @@ upsertTarif {
     youtubeLink = :youtubeLink,
     ingredients = :ingredients,
     instructions = :instructions,
-    isFavorite = :isFavorite,
+    isFavori = :isFavori,
     rating = :rating,
     duration = :duration,
     difficulty = :difficulty
     WHERE id = :id;
 
-    INSERT OR IGNORE INTO Tarif(id, title, description, category, area, imageUrl, youtubeLink, ingredients, instructions, isFavorite, rating, duration, difficulty)
-    VALUES(:id, :title, :description, :category, :area, :imageUrl, :youtubeLink, :ingredients, :instructions, :isFavorite, :rating, :duration, :difficulty);
+    INSERT OR IGNORE INTO Tarif(id, title, description, category, area, imageUrl, youtubeLink, ingredients, instructions, isFavori, rating, duration, difficulty)
+    VALUES(:id, :title, :description, :category, :area, :imageUrl, :youtubeLink, :ingredients, :instructions, :isFavori, :rating, :duration, :difficulty);
 
 }
 
-selectTumTarifler:
+selectAllTarifler:
 SELECT * FROM Tarif;
 
 selectTarifById:
@@ -59,16 +59,16 @@ UPDATE Tarif
     youtubeLink = ?,
     ingredients = ?,
     instructions = ?,
-    isFavorite = ?,
+    isFavori = ?,
     rating = ?,
     duration = ?,
     difficulty = ?
     WHERE  id = ?;
 
-TarifSilById:
+deleteTarifById:
 DELETE FROM Tarif WHERE id = ?;
 
-deleteTumTarifler:
+deleteAllTarifler:
 DELETE FROM Tarif;
 
 araTarifByText:

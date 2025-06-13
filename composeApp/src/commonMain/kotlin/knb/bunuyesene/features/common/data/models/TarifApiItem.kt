@@ -114,7 +114,7 @@ data class TarifApiItem(
     val strYoutube: String? = null
 )
 
-fun TarifApiItem.toRecipe(): TarifItem? {
+fun TarifApiItem.toTarif(): TarifItem? {
     return if (idMeal != null)
        TarifItem(
             id = idMeal.toLong(),
@@ -143,7 +143,7 @@ fun TarifApiItem.toRecipe(): TarifItem? {
             instructions = strInstructions?.split(".")?.map {
                 it.trim().replace("\r\n", "").captializeFirstWord()
             }?.filter { it.isNotEmpty() } ?: emptyList(),
-            isFavorite = false,
+            isFavori = false,
             rating = 3
         ) else null
 }

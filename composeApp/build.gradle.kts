@@ -57,21 +57,24 @@ kotlin {
 //    }
 
     js(IR) {
-        compilerOptions {
-            outputModuleName.set("composeApp")
-        }
+        moduleName = "composeApp"
         browser {
+            val rootDirPath = project.rootDir.path
+            val projectDirPath = project.projectDir.path
             commonWebpackConfig {
                 outputFileName = "composeApp.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    port = 8081
-                    static = mutableListOf(project.rootDir.path)
+                    static = (static ?: mutableListOf()).apply {
+                        // Serve sources to debug inside browser
+                        add(rootDirPath)
+                        add(projectDirPath)
+                    }
                 }
             }
         }
         binaries.executable()
-
     }
+
     sourceSets {
         val desktopMain by getting
 
@@ -118,7 +121,9 @@ kotlin {
             implementation(libs.multiplatform.settings)
 
             implementation(libs.kotlinx.datetime)
+
             implementation(libs.primitive.adapters)
+
         }
 
         iosMain.dependencies {
@@ -137,8 +142,6 @@ kotlin {
         }
 
         jsMain.dependencies {
-            implementation(compose.html.core)
-            implementation(compose.runtime)
             implementation(libs.ktor.client.js)
 
             implementation(npm("@cashapp/sqldelight-sqljs-worker", "2.0.2"))
@@ -203,11 +206,4 @@ sqldelight {
     }
 }
 
-tasks.register("jsBrowserRun") {
-    dependsOn("jsBrowserDevelopmentRun")
-    group = "run"
-    description = "Alias for jsBrowserDevelopmentRun"
-
-
-}
 

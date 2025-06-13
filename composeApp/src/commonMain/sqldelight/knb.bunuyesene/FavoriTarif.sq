@@ -1,0 +1,44 @@
+import kotlin.String;
+import kotlin.collections.List;
+
+CREATE TABLE FavoriTarif (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    tarif_id INTEGER UNIQUE NOT NULL,
+    added_at TEXT NOT NULL,
+    FOREIGN KEY (tarif_id) REFERENCES Tarif(id) ON DELETE CASCADE
+);
+
+insertFavori:
+INSERT INTO FavoriTarif(tarif_id, added_at)
+VALUES(?, ?);
+
+upsertFavori {
+    UPDATE FavoriTarif
+    SET added_at = :added_at
+    WHERE tarif_id = :tarif_id;
+
+   INSERT OR IGNORE INTO FavoriTarif(tarif_id, added_at)
+   VALUES(:tarif_id, :added_at);
+}
+
+selectAllFavoriTarifIds:
+SELECT id FROM FavoriTarif;
+
+
+selectAllFavoriTarifler:
+SELECT Tarif.* FROM Tarif INNER JOIN FavoriTarif ON Tarif.id = FavoriTarif.tarif_id;
+
+
+selectFavoriByTarifId:
+SELECT * FROM FavoriTarif WHERE tarif_id = ?;
+
+
+deleteFavoriByTarifId:
+DELETE FROM FavoriTarif WHERE tarif_id = ?;
+
+deleteAllFavoriTarifler:
+DELETE FROM FavoriTarif;
+
+
+
+

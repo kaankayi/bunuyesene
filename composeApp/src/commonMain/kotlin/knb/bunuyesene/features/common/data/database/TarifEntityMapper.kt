@@ -14,7 +14,7 @@ fun tarifEntityMapper(tarif: Tarif)  = TarifItem(
     tarif.youtubeLink,
     tarif.ingredients,
     tarif.instructions,
-    tarif.isFavorite == 1L,
+    tarif.isFavori == 1L,
     tarif.rating,
     tarif.duration ?: "20 Mins",
     tarif.difficulty ?: "Easy"
