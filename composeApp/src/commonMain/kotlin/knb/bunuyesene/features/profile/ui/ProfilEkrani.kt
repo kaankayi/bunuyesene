@@ -40,7 +40,7 @@ import knb.bunuyesene.features.common.ui.components.Loader
 import knb.bunuyesene.features.profile.data.User
 import bunuyesene.composeapp.generated.resources.Res
 import bunuyesene.composeapp.generated.resources.avatar
-import bunuyesene.composeapp.generated.resources.profile_dummy
+import bunuyesene.composeapp.generated.resources.girisyapmamis
 
 @Composable
 fun ProfilRoute(
@@ -144,7 +144,7 @@ fun NotLoggedInProfilEkrani(
         Spacer(modifier = Modifier.height(32.dp))
 
         Image(
-            painter = painterResource(Res.drawable.profile_dummy),
+            painter = painterResource(Res.drawable.girisyapmamis),
             contentDescription = "Placeholder",
             modifier = Modifier.size(120.dp).clip(CircleShape).border(
                 0.3.dp, MaterialTheme.colorScheme.outline.copy(

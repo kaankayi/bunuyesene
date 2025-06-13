@@ -47,7 +47,7 @@ import org.jetbrains.compose.resources.stringResource
 import knb.bunuyesene.features.common.ui.components.ErrorContent
 import bunuyesene.composeapp.generated.resources.Res
 import bunuyesene.composeapp.generated.resources.app_name
-import bunuyesene.composeapp.generated.resources.recipe_app_logo
+import bunuyesene.composeapp.generated.resources.bunuyesenelogo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -137,7 +137,7 @@ fun GirisEkraniModalBottomSheet(
 
                     //Image or logo
                     Image(
-                        painter = painterResource(Res.drawable.recipe_app_logo),
+                        painter = painterResource(Res.drawable.bunuyesenelogo),
                         contentDescription = "Logo",
                         modifier = Modifier.size(120.dp).align(Alignment.CenterHorizontally),
                         contentScale = ContentScale.Crop
