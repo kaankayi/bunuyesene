@@ -144,7 +144,7 @@ fun TarifApiItem.toTarif(): TarifItem? {
                 it.trim().replace("\r\n", "").captializeFirstWord()
             }?.filter { it.isNotEmpty() } ?: emptyList(),
             isFavori = false,
-            rating = 3
+            rating = 4
         ) else null
 }
 

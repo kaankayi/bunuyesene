@@ -83,7 +83,7 @@
                 ),
                 title = {
                     Text(
-                        text = "Search Recipes"
+                        text = "Tarifleri Ara"
                     )
                 },
                 navigationIcon = {
@@ -127,7 +127,7 @@
                     onSearchTextChanged(it)
                 },
                 placeholder = {
-                    Text(text = "Search Recipe Items...")
+                    Text(text = "Malzemeleri Ara...")
                 },
                 modifier = Modifier.background(
                     MaterialTheme.colorScheme.onPrimary

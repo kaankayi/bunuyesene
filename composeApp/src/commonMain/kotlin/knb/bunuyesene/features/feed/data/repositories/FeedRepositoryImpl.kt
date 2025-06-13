@@ -12,10 +12,10 @@ class FeedRepositoryImpl(
 
     override suspend fun getTarifList(): Result<List<TarifItem>> {
         return try {
-            val recipeListCache = feedLocalDataSource.getTarifList()
-            val count = recipeListCache.count()
+            val tarifListCache = feedLocalDataSource.getTarifList()
+            val count = tarifListCache.count()
             return if (count > 0) {
-                Result.success(recipeListCache)
+                Result.success(tarifListCache)
             } else {
                 val tarifListApiResponse = feedRemoteDataSource.getTarifList()
                 feedLocalDataSource.saveTarifList(tarifListApiResponse)

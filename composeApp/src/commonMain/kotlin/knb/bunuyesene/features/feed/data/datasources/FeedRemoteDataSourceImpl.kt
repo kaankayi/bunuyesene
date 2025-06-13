@@ -12,10 +12,14 @@ class FeedRemoteDataSourceImpl(
     private val httpClient: HttpClient
 ): FeedRemoteDataSource {
     override suspend fun getTarifList(): List<TarifItem> {
-        val httpResponse = httpClient.get("${BASE_URL}search.php?f=b")
-        val tarifListApiResponse = httpResponse.body<TarifListApiResponse>()
-        return tarifListApiResponse.meals.mapNotNull {
-            it.toTarif()
+        val allMeals = mutableListOf<TarifItem>()
+
+        for (char in 'a'..'z') {
+            val response = httpClient.get("${BASE_URL}search.php?f=$char")
+            val mealsResponse = response.body<TarifListApiResponse>()
+            mealsResponse.meals?.mapNotNull { it.toTarif() }?.let { allMeals.addAll(it) }
         }
+
+        return allMeals
     }
 }
